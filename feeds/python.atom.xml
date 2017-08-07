@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>ValsBlog</title><link href="http://vfreysz.github.io/" rel="alternate"></link><link href="http://vfreysz.github.io/feeds/python.atom.xml" rel="self"></link><id>http://vfreysz.github.io/</id><updated>2017-07-08T00:00:00+02:00</updated><entry><title>Equilibre thermodynamique</title><link href="http://vfreysz.github.io/equilibre-thermodynamique.html" rel="alternate"></link><updated>2017-07-08T00:00:00+02:00</updated><author><name>Valerian FREYSZ</name></author><id>tag:vfreysz.github.io,2017-07-08:equilibre-thermodynamique.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ValsBlog</title><link href="https://vfreysz.github.io/" rel="alternate"></link><link href="https://vfreysz.github.io/feeds/python.atom.xml" rel="self"></link><id>https://vfreysz.github.io/</id><updated>2017-07-08T00:00:00+02:00</updated><entry><title>Equilibre thermodynamique</title><link href="https://vfreysz.github.io/equilibre-thermodynamique.html" rel="alternate"></link><updated>2017-07-08T00:00:00+02:00</updated><author><name>Valerian FREYSZ</name></author><id>tag:vfreysz.github.io,2017-07-08:equilibre-thermodynamique.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -999,10 +999,10 @@ h6:hover .anchor-link {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="ea2337b5-4091-4021-84bc-82c40d31990c"&gt;&lt;/div&gt;
+&lt;div id="36a75647-40de-41e9-afad-03281b7cf046"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#ea2337b5-4091-4021-84bc-82c40d31990c');
+var element = $('#36a75647-40de-41e9-afad-03281b7cf046');
     MathJax.Hub.Config({
       TeX: { equationNumbers: { autoNumber: "AMS" } }
     });
