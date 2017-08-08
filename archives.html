@@ -1,60 +1,92 @@
-<!DOCTYPE html>
-<html lang="fr">
+<!doctype html>
+<html lang="en">
 <head>
-        <meta charset="utf-8" />
-        <title>valsblog</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ValsBlog, ">
 
-        <!--[if IE]>
-            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
+
+        <title>all posts // ValsBlog // </title>
+
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.3.0/pure-min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/theme/css/pure.css">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 </head>
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="/">valsblog </a></h1>
-                <nav><ul>
-                    <li><a href="/category/divers.html">Divers</a></li>
-                    <li><a href="/category/python.html">Python</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
-<section id="content" class="body">
-<h1>Archives for valsblog</h1>
+<body>
+<div class="pure-g-r" id="layout">
+<div class="sidebar pure-u">
+    <div class="cover-img" style="background-image: url('photo/Side_image_ld.jpg')">
+        <div class="cover-body">
+            <header class="header">
+                <hgroup>
+                    <h1 class="brand-main"><a href="/">ValsBlog</a></h1>
+                    <p class="tagline"></p>
+                    <p class="social">
+                        <a href="https://github.com/vfreysz">
+                            <i class="fa fa-github fa-3x"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/valerian-freysz">
+                            <i class="fa fa-linkedin fa-3x"></i>
+                        </a>
+                    <p>
+                </hgroup>
+            </header>
+        </div>
+    </div>
+</div>    <div class="pure-u-1">
+        <div class="content">
+            <h1 class="content-subhead">All posts</h1>
+                <div class="archive-item">
+                    <a href="/author/freysz-valerian.html" title="See posts by FREYSZ Valerian">
+                    </a>
+                    <h5 class="archive-date">2017</h5>
+                    <h4 class="archive-date">07 août</h4>
+                    <div class="archive-post"><a href="article-equilibre.html">Equilibre thermodynamique</a></div>
+                    <p class="archive-meta">FREYSZ Valerian in <a href="/category/python.html">Python</a></p>
+                </div>
+                <div class="archive-item">
+                    <a href="/author/freysz-valerian.html" title="See posts by FREYSZ Valerian">
+                    </a>
+                    <h5 class="archive-date">2016</h5>
+                    <h4 class="archive-date">03 décembre</h4>
+                    <div class="archive-post"><a href="article-test.html">Article Test</a></div>
+                    <p class="archive-meta">FREYSZ Valerian in <a href="/category/divers.html">Divers</a></p>
+                </div>
+        </div>
+    </div>
+</div>
+<footer class="footer">
+    <p>&copy; ValsBlog &ndash;
+        Built with <a href="https://github.com/PurePelicanTheme/pure">Pure Theme</a>
+        for <a href="http://blog.getpelican.com/">Pelican</a>
+    </p>
+</footer>    <script>
+        var $top = $('.go-top');
 
-<dl>
-    <dt>sam. 08 juillet 2017</dt>
-    <dd><a href="/equilibre-thermodynamique.html">Equilibre thermodynamique</a></dd>
-    <dt>sam. 03 décembre 2016</dt>
-    <dd><a href="/article-test.html">Article Test</a></dd>
-</dl>
-</section>
-        <section id="extras" class="body">
-                <div class="blogroll">
-                        <h2>links</h2>
-                        <ul>
-                            <li><a href="http://getpelican.com/">Pelican</a></li>
-                            <li><a href="http://python.org/">Python.org</a></li>
-                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-                            <li><a href="#">You can modify those links in your config file</a></li>
-                        </ul>
-                </div><!-- /.blogroll -->
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
+        // Show or hide the sticky footer button
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                $top.fadeIn(200);
+            } else {
+                $top.fadeOut(200);
+            }
+        });
 
-                            <li><a href="#">You can add links in your config file</a></li>
-                            <li><a href="#">Another social link</a></li>
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
+        // Animate the scroll to top
+        $top.click(function(event) {
+            event.preventDefault();
+            $('html, body').animate({scrollTop: 0}, 300);
+        })
 
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
-
-                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
-
+        // Makes sure that the href="#" attached to the <a> elements
+        // don't scroll you back up the page.
+        $('body').on('click', 'a[href="#"]', function(event) {
+            event.preventDefault();
+        });
+    </script>
 </body>
 </html>
