@@ -6,3 +6,5 @@ Authors: FREYSZ Valerian
 Summary: Dans cet articles nous developpons un code sous pour évaluer l'influence de la pression et de la température sur un gazeifieur. Nous verrons les bases théoriques, le mise en place du code a partir de ces bases, et enfin l'utilisation du code. 
 Slug: article-equilibre-gazeification
 
+{% notebook Equilibre_thermodynamique.ipynb cells[2:] %}
+
