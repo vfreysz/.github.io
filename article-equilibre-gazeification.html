@@ -6,7 +6,7 @@
     <meta name="description" content="ValsBlog, ">
 
 
-        <title>Equilibre thermodynamique // ValsBlog // </title>
+        <title>Evaluation de la composition de sortie d'un gazeifieur à équilibre thermodynamique. // ValsBlog // </title>
 
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.3.0/pure-min.css">
@@ -42,10 +42,11 @@
         <div class="content">
             <section class="post">
                 <header class="post-header">
-                    <h1>Equilibre thermodynamique</h1>
+                    <h1>Evaluation de la composition de sortie d'un gazeifieur à équilibre thermodynamique.</h1>
                         <p class="post-meta">
                             // under                                 <a class="post-category" href="/tag/python.html">python</a>
-                                <a class="post-category" href="/tag/scipy.html">scipy</a>
+                                <a class="post-category" href="/tag/thermodynamique.html">thermodynamique</a>
+                                <a class="post-category" href="/tag/gazeification.html">gazeification</a>
                         </p>
                 </header>
             </section>
@@ -55,7 +56,7 @@
 <div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Image</span><span class="p">,</span> <span class="n">SVG</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Image</span><span class="p">,</span> <span class="n">SVG</span><span class="p">,</span> <span class="n">HTML</span>
 </pre></div>
 </div>
 </div>
@@ -78,10 +79,10 @@
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="00f05414-5476-4a78-884b-7dca4cf867b7"></div>
+<div id="e1411127-c713-4d6c-84e8-eefa5f1f0383"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#00f05414-5476-4a78-884b-7dca4cf867b7');
+var element = $('#e1411127-c713-4d6c-84e8-eefa5f1f0383');
     MathJax.Hub.Config({
       TeX: { equationNumbers: { autoNumber: "AMS" } }
     });
@@ -95,7 +96,7 @@ var element = $('#00f05414-5476-4a78-884b-7dca4cf867b7');
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Avant-propos">Avant propos<a class="anchor-link" href="#Avant-propos">Â¶</a></h3>
+<h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">Â¶</a></h1>
 </div>
 </div>
 </div>
@@ -103,12 +104,26 @@ var element = $('#00f05414-5476-4a78-884b-7dca4cf867b7');
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Le but de ce notebook est de synthétiser la théorie et la pratique du calcul de l'équilibre thermodynamique de systèmes de réactions chimiques.</p>
-<ul>
-<li>Pour la théorie je me suis principalement servie de l'ouvrage de <html>(Turns, 2012)</html>.</li>
-<li>Les données proviennent de <html>(Gordon & McBride, 2002)</html>.</li>
-<li>Les exemples et le code sont originaux. </li>
-</ul>
+<p>Le Jupyter notebook qui est utilisé pour construire l'article est disponible 
+<a href="https://github.com/vfreysz/Equi_Thermo_py/blob/master/Equilibre_thermodynamique.ipynb">ici</a></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Gazeification">Gazeification<a class="anchor-link" href="#Gazeification">Â¶</a></h1><p>L'application de tous les calculs que nous allons développer par la suite est celle de la gazéification de composés carbonés sous différentes pressions et températures. 
+Commençons par donner une définition.</p>
+<h2 id="Définition">Définition<a class="anchor-link" href="#Définition">Â¶</a></h2><p>La gazeification au sens large, couvre la conversion de tout combustible carboné en produit gazeux ayant un pouvoir calorifique exploitable. 
+Cette définition exclut donc les gaz produits de combustion puisque ces derniers n'ont pas de pouvoir calorifique résiduel. 
+Par contre, la pyrolyse, l’oxydation partielle ou l’hydrogénation rentrent dans ce cadre. 
+Au cours de l'histoire de la gazéification, on est passé du processus de pyrolyse, qui était principalement employé à ses débuts, à l’oxydation partielle qui est actuellement la plus mise en œuvre. 
+Ce dernier procédé produit un gaz de synthèse (aussi connu sous le nom de syngas dans les publications anglophones) qui est essentiellement composé de dihydrogène H$_2$ et de monoxyde de carbone CO.
+Le rapport entre ces deux espèces dépend de la matière première et des conditions réactionnelles. 
+L’oxydant est en général de l’oxygène pur, de l'air et/ou de la vapeur d'eau.
+L’oxydation partielle peut aussi bien s'appliquer aux solides, aux liquides et aux gaz. 
+La matière première utilisée dans ce processus peut être par exemple du charbon, des huiles résiduelles issues de la distillation des produits pétroliers ou du gaz naturel.</p>
 </div>
 </div>
 </div>
@@ -1061,7 +1076,7 @@ Ces polynomes permettent d'évaluer numeriquement, en fonction de la températur
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [4]:</div>
+<div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -1073,7 +1088,7 @@ Ces polynomes permettent d'évaluer numeriquement, en fonction de la températur
                   <span class="p">[</span><span class="mf">3.356004410E+05</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.596528368E+03</span><span class="p">,</span> <span class="mf">6.948841910E+00</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.484836090E-03</span><span class="p">,</span> <span class="mf">1.844192445E-06</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.055205960E-10</span><span class="p">,</span> <span class="mf">5.750639010E-14</span><span class="p">,</span> <span class="mf">1.398412456E+04</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.477183040E+01</span><span class="p">]],</span> 
                   <span class="n">index</span><span class="o">=</span><span class="n">index_T_200_600_2000</span><span class="p">,</span> 
                   <span class="n">columns</span><span class="o">=</span><span class="n">index_coef</span><span class="p">)</span>
-<span class="n">df_C</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df_C</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1081,8 +1096,8 @@ Ces polynomes permettent d'évaluer numeriquement, en fonction de la températur
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area">
-<div class="prompt output_prompt">Out[4]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result">
+<div class="prompt"></div>
+<div class="output_html rendered_html output_subarea ">
 <div>
 <style>
     .dataframe thead tr:only-child th {
@@ -5759,6 +5774,36 @@ z
 </svg>
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Influence-de-la-température-et-de-la-pression-sur-la-compostion-de-sortie.">Influence de la température et de la pression sur la compostion de sortie.<a class="anchor-link" href="#Influence-de-la-température-et-de-la-pression-sur-la-compostion-de-sortie.">Â¶</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion">Â¶</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 </div>
 </div>
 </div>
