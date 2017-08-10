@@ -1025,14 +1025,6 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">Â¶</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p>Le Jupyter notebook qui est utilisé pour construire l'article est disponible 
 <a href="https://github.com/vfreysz/Equi_Thermo_py/blob/master/Equilibre_thermodynamique.ipynb">ici</a></p>
 </div>
@@ -1042,17 +1034,20 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Gazeification">Gazeification<a class="anchor-link" href="#Gazeification">Â¶</a></h1><p>L'application de tous les calculs que nous allons développer par la suite est celle de la gazéification de composés carbonés sous différentes pressions et températures. 
-Commençons par donner une définition.</p>
-<h2 id="Définition">Définition<a class="anchor-link" href="#Définition">Â¶</a></h2><p>La gazéification au sens large couvre la conversion de tout combustible carboné en produit gazeux ayant un pouvoir calorifique exploitable. 
-Cette définition exclut donc les gaz produits de combustion puisque ces derniers n'ont pas de pouvoir calorifique résiduel.
-Par contre, la pyrolyse, l’oxydation partielle ou l’hydrogénation rentrent dans ce cadre. 
-Au cours de l'histoire de la gazéification, on est passé du processus de pyrolyse, qui était principalement employé à ses débuts, à l’oxydation partielle qui est actuellement la plus mise en œuvre. 
-Ce dernier procédé produit un gaz de synthèse (aussi connu sous le nom de syngas dans les publications anglophones) qui est essentiellement composé de dihydrogène H$_2$ et de monoxyde de carbone CO.
-Le rapport entre ces deux espèces dépend de la matière première et des conditions réactionnelles. 
-L’oxydant est en général de l’oxygène pur, de l'air et/ou de la vapeur d'eau.
-L’oxydation partielle peut aussi bien s'appliquer aux solides, aux liquides et aux gaz. 
-La matière première utilisée dans ce processus peut être par exemple du charbon, des huiles résiduelles issues de la distillation des produits pétroliers ou du gaz naturel.</p>
+<h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">Â¶</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Nous allons traiter de l'équilibre thermodynamique d'un gazeifieur. 
+Un gazeifieur permet d'effectuer une gazéification qui au sens large couvre la conversion de tout combustible carboné en produit gazeux ayant un pouvoir calorifique exploitable. 
+Plus concrètement on utilise de la matière végétale, du charbon, des déchets, qui sont transformés en produits, notamment gazeux, qui peuvent être utilisés pour la production de chaleur, d’électricité, de carburants de substitution ou d’hydrogène. 
+Un gazeifieur est influencé par de très nombreux paramètres, mais la pression et la température sont deux des plus importants. 
+En fonction de ces deux paramètres, la composition de sortie peut être complètement modifiée. 
+L'équilibre thermodynamique permet d'avoir une première estimation de la composition de sortie fonction de ces deux paramètres, c'est ce que nous allons voir par la suite.</p>
 </div>
 </div>
 </div>
@@ -1801,17 +1796,6 @@ Trois cas sont possibles (voir figure ci-dessus):</p>
 <li>$\Delta G_T^o$ = 0 implique que le système est à l'équilibre.  </li>
 <li>$\Delta G_T^o$ > 0 implique que la réaction ne peut pas avoir lieu. </li>
 </ul>
-<p>Ces trois cas proviennent directement de l'analyse de la seconde loi de la thermodynamique.
-Pour notre problème, le second principe peut s'exprimer de la manière suivante:</p>
-\begin{equation}
-(\mathrm{d}G)_{T,P,m} \leq 0,
-\end{equation}<p>Dans le premier cas, l'expression du second principe indique que la fonction de Gibbs décroit toujours pour un changement spontané, isotherme et isobare d'un système de masse fixée en l'absence de travail mécanique.</p>
-<p>Le deuxième cas en découle également directement puisque l'on comprend que la fonction de Gibbs atteint son minimum à l'équilibre, contrairement à l'entropie qui est maximale. 
-Ce qui nous donne, pour l'état d'équilibre:</p>
-\begin{equation}
-(\mathrm{d}G)_{T,P,m} = 0,
-\end{equation}<p>Le troisième cas est également trivial, puisque la seconde loi impose la diminution de l'enthalpie libre lors de l'avancement d'une réaction. 
-Une augmentation est impossible.</p>
 <p>Appliquons maintenant cette loi à un mélange de gaz parfait.
 Pour ce type de mélange, la fonction de Gibbs de la $i^{\text{eme}}$ espèce chimique est donnée par:</p>
 \begin{equation}
@@ -1972,7 +1956,7 @@ Cette loi indique qu'une augmentation de la température sur un système fermé 
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Avant d'aller plus loin, il faut importer les coefficients des polynomes pour les especes qui nous interessent à partir de <html>(Gordon & McBride, 2002)</html>. 
-Ces polynomes permettent d'évaluer numeriquement, en fonction de la température, differentes variables thermodynamique pour un grand nombre d'éspeces gazeuse.</p>
+Ces polynomes permettent d'évaluer numeriquement, en fonction de la température, differentes variables thermodynamique, nottament l'énergie libre de Gibbs dont que nous avons utilisé pecedemment, pour un grand nombre d'éspeces gazeuse.</p>
 <p>Chaque ligne represente un domaine de température (K) et chaque colone un coefficient.</p>
 </div>
 </div>
@@ -1999,7 +1983,7 @@ Ces polynomes permettent d'évaluer numeriquement, en fonction de la températur
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Pour le carbone solide C(s)</p>
+<p>Pour le carbone solide C(s).</p>
 </div>
 </div>
 </div>
@@ -2096,7 +2080,7 @@ Ces polynomes permettent d'évaluer numeriquement, en fonction de la températur
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Pour la vapeur d'eau H$_2$O</p>
+<p>Pour la vapeur d'eau H$_2$O.</p>
 </div>
 </div>
 </div>
@@ -2185,6 +2169,14 @@ Ces polynomes permettent d'évaluer numeriquement, en fonction de la températur
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Pour les autres espèces.</p>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In [6]:</div>
@@ -2237,7 +2229,7 @@ Ces polynomes permettent d'évaluer numeriquement, en fonction de la températur
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>On construit une fonction qui construit la matrice des coefficients en fonction de l'éspece et de la température.</p>
+<p>On construit une fonction qui renvoie la matrice des coefficients en fonction de l'éspece et de la température.</p>
 </div>
 </div>
 </div>
@@ -2437,10 +2429,10 @@ Si $N_c$ et $N_g$, sont le nombre de moles de carbone solide et le nombre de mol
 \end{equation}<p>ce qui donne</p>
 \begin{equation}
 \chi_\mathrm{CO} + \chi_\mathrm{H_2O} + \chi_\mathrm{H_2} = 1
-\end{equation}<p>Comme nous pouvons le voir dans la résolution du probléme ci dussous, le système comporte 5 inconues et 5 équations. 
-Pour cet exemple, le systeme d'équation est linéaire, mais ce n'est pas toujours le cas. 
+\end{equation}<p>Comme nous pouvons le voir dans la résolution du problème ci dessous, le système comporte 5 inconnues et 5 équations. 
+Pour cet exemple, le système d'équations est linéaire, mais ce n'est pas toujours le cas. 
 Dans le cas général, le système est non linéaire et il faut utiliser un solveur itératif pour résoudre le système. 
-Ici nous allons utiliser "scipy.optimize.root" pour resoudre le systeme à différentes températures. 
+Ici nous allons utiliser "scipy.optimize.root" pour résoudre le système à différentes températures. 
 La fonction "root" permet d'utiliser de nombreux solveur itératif.</p>
 </div>
 </div>
@@ -4572,7 +4564,7 @@ N_\text{O} & = N_g \left( \chi_\text{CO} + 2 \chi_\text{CO$_2$} +  \chi_\text{H$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Regardons l'évolution de la composition en fonction de la température.</p>
+<p>Regardons l'évolution de la composition en fonction de la température à la pression atmosphérique soit 1e5Pa.</p>
 </div>
 </div>
 </div>
@@ -6720,7 +6712,7 @@ z
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Regardons l'évolution de la composition en fonction de la pression.</p>
+<p>Regardons l'évolution de la composition en fonction de la pression à 900K.</p>
 </div>
 </div>
 </div>
@@ -8335,7 +8327,7 @@ En revanche à pression constante, une élévation de température favorise les 
 <p>Dans cet article, nous avons construit un code de calcul de l'équilibre thermodynamique à partir des équations fondamentales. 
 Nous avons ensuite utilisé ce code pour étudier le cas de la gazéification du charbon à pression et à température constante. 
 Cet exemple ne constitue qu'un exemple d'application du code et tout système réactif gazeux peut être approximé avec cette méthode. 
-Les méthodes que nous avons vues pour résoudre le système réactif peuvent, elles aussi s'appliquer à tout système non linéaire couplé d'équations différentielles ordinaire.</p>
+Les méthodes que nous avons vues pour résoudre le système réactif peuvent, elles aussi s'appliquer à tout système non linéaire d'équations couplées.</p>
 </div>
 </div>
 </div>
